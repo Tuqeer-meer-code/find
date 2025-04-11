@@ -51,7 +51,7 @@ class _MissingPdfsCheckerState extends State<MissingPdfsChecker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Missing PDFs Checker')),
+      appBar: AppBar(title: const Text('Missing PDFs Checker')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -62,12 +62,12 @@ class _MissingPdfsCheckerState extends State<MissingPdfsChecker> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Paste Visit IDs (one per line):', style: TextStyle(fontSize: 16)),
-                  SizedBox(height: 8),
+                  const Text('Paste Visit IDs (one per line):', style: TextStyle(fontSize: 16)),
+                  const SizedBox(height: 8),
                   TextField(
                     controller: _visitIdsController,
                     maxLines: 10,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'visit1\nvisit2\nvisit3',
                     ),
@@ -76,22 +76,22 @@ class _MissingPdfsCheckerState extends State<MissingPdfsChecker> {
                 ],
               ),
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ElevatedButton(
                     onPressed: pickPdfFiles,
-                    child: Text('Upload PDF Files'),
+                    child: const Text('Upload PDF Files'),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   if (pdfFiles.isNotEmpty) Text('Uploaded PDFs: ${pdfFiles.join(', ')}'),
-                  SizedBox(height: 16),
-                  Text('Missing PDFs:', style: TextStyle(fontSize: 16)),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 16),
+                  const Text('Missing PDFs:', style: TextStyle(fontSize: 16)),
+                  const SizedBox(height: 8),
                   missingPdfs.isEmpty && visitIds.isNotEmpty && pdfFiles.isNotEmpty
-                      ? Text('All PDFs are present!')
+                      ? const Text('All PDFs are present!')
                       : ListView.builder(
                           shrinkWrap: true,
                           itemCount: missingPdfs.length,
